@@ -1,0 +1,26 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "max-nesting-depth": 3,
+    "order/properties-order": [
+      "position",
+      "top",
+      "right",
+      "bottom",
+      "left",
+      "display",
+      "margin",
+      "padding",
+      "width",
+      "height",
+      "border",
+      "background",
+      "font-size",
+      "font-weight",
+      "color"
+    ]
+  }
+}
