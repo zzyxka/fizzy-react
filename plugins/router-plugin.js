@@ -35,6 +35,7 @@ class RouterPlugin {
             componentName: camelCaseFormat(pageName),
             routePath,
             pageName,
+            pageConfig: routeConfig
           });
         });
 
@@ -42,7 +43,7 @@ class RouterPlugin {
           return `const ${route.componentName} = lazy(async () => await import('@/pages/${route.pageName}/Index'));`;
         })
         const configs = routes.map((route, index) => {
-          return `\n  { path: '${route.routePath}', element: <Suspense fallback={'loading'}><${route.componentName} /></Suspense> }${index === routes.length - 1 ? '\n' : ','}`;
+          return `\n  { path: '${route.routePath}', element: <Suspense fallback={'loading'}><${route.componentName} /></Suspense>, loader: () => ({ pageConfig: ${JSON.stringify(route.pageConfig)}}) }${index === routes.length - 1 ? '\n' : ','}`;
         });
 
         // 将生成的路由信息写入到 router.js 文件中  

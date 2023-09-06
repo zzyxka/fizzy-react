@@ -1,9 +1,10 @@
-import React from 'react'
-import { useParams } from 'react-router-dom';
+import React from "react";
+import { useLoaderData, useParams } from "react-router-dom";
 
-export default function Detail (): React.ReactElement<any, any> {
+export default function Detail(): React.ReactElement<any, any> {
   const { detailId } = useParams();
-  return (
-    <div>DetailID: {detailId}</div>
-  )
+  const loaderData = useLoaderData();
+  console.log("loaderData", loaderData);
+
+  return <div>DetailID: {detailId}</div>;
 }
