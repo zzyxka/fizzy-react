@@ -21,42 +21,36 @@
 
 ```bash
 .
-├── babel.config.json       # babel 配置
-├── index.ejs               # html 模板
-├── package.json
 ├── plugins                 # 自定义 webpack plugin 目录
 │   └── router-plugin.js    # 自动生成路由插件
-├── pnpm-lock.yaml
-├── postcss.config.js
-├── readme.md
 ├── src
 │   ├── $fizzy-generated    # 自动生成的产物
 │   │   └── routeConfig.tsx # 自动生成的路由配置
 │   ├── App.tsx             # 项目渲染入口
 │   ├── components          # 公共组件目录
-│   │   └── PageLoading.tsx
 │   ├── constant            # 常量管理
-│   │   └── storage.ts
 │   ├── entry.tsx
 │   ├── layout              # 布局组件目录
-│   │   ├── Index.tsx
-│   │   └── layout.css
 │   ├── pages               # 页面目录
 │   │   ├── demo-detail     # 示例：详情页
-│   │   │   ├── Index.tsx
-│   │   │   └── page.json
 │   │   ├── demo-edit       # 示例：编辑页（不传参则为新增页）
-│   │   │   ├── Index.tsx
-│   │   │   └── page.json
 │   │   ├── demo-list       # 示例：列表页
-│   │   │   ├── Index.tsx
-│   │   │   ├── list.css
-│   │   │   └── page.json
 │   │   └── home            # 首页
-│   │       └── Index.tsx
 │   ├── router.tsx          # 路由配置
 │   └── typings
 │       └── global.d.ts     # 全局类型声明
+├── index.ejs               # html 模板
+├── .npmrc
+├── .gitignore
+├── .eslintignore
+├── .eslintrc.js
+├── babel.config.json
 ├── tsconfig.json
+├── .prettierignore
+├── .prettierrc.json
+├── pnpm-lock.yaml
+├── postcss.config.js
+├── package.json
+├── readme.md
 └── webpack.config.js
 ```
