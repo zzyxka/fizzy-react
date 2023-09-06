@@ -15,7 +15,7 @@ class RouterPlugin {
 
   apply(compiler) {
     compiler.hooks.thisCompilation.tap('RouterPlugin', (compilation, callback) => {
-      glob(path.join(this.options.srcDir, '**', '*.json'), (err, files) => {
+      glob(path.join(this.options.srcDir, '**', 'page.json'), (err, files) => {
         if (err) {
           compilation.errors.push(err);
           return callback();
