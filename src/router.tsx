@@ -1,16 +1,17 @@
+// router.tsx
 import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
-import App from './App';
+import { createHashRouter } from 'react-router-dom';
+import Layout from './layout/Index';
+import Home from './pages/home/Index';
+import routeConfig from '@@/routeConfig';
 
-export default createBrowserRouter([
+export default createHashRouter([
   {
     path: '/',
-    element: <App />,
+    element: <Layout />,
     children: [
-      {
-        path: '/',
-        element: <App />
-      }
+      { index: true, element: <Home /> },
+      ...routeConfig
     ]
   }
 ]);

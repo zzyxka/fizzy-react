@@ -1,9 +1,12 @@
 // App.tsx
 import React from 'react';
-import style from './style.css';
+import { RouterProvider } from 'react-router-dom';
+import router from './router';
 
 export default function App (): React.ReactElement<any, any> {
   return (
-    <div><h1 className={style.h1}>Hello <span>Fizzy</span> React !</h1></div>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
   )
 }

@@ -1,0 +1,45 @@
+.appContainer {
+  display: flex;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.layoutNav {
+  h2 {
+    text-align: center;
+  }
+
+  width: 300px;
+  height: 100%;
+  border-right: 1px #dbdbde solid;
+
+  .navItem {
+    display: block;
+    margin: 0 10px;
+    padding: 10px;
+    text-decoration: none;
+  }
+
+  .active {
+    background: #00f;
+    color: #fff;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  li:has(.active) {
+    background: #00f;
+    color: #fff;
+  }
+}
+
+.outletContainer {
+  flex: 1;
+  overflow: auto;
+}

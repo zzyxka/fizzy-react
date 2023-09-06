@@ -22,7 +22,14 @@
       "WebWorker"
     ],
     "forceConsistentCasingInFileNames": true,
-    "paths": {}
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@@/*": [
+        "./src/$fizzy-generated/*"
+      ],
+    }
   },
   "include": [
     "src/**/*.ts",
@@ -31,6 +38,8 @@
   ],
   "exclude": [
     "node_modules",
-    "build"
+    "build",
+    "dist",
+    "plugins"
   ]
 }

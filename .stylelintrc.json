@@ -21,6 +21,7 @@
       "font-size",
       "font-weight",
       "color"
-    ]
+    ],
+    "selector-class-pattern": null
   }
 }
