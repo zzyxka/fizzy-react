@@ -1,14 +1,22 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const RouterPlugin = require('./plugins/router-plugin.js');
 
 module.exports = {
   entry: './src/entry.tsx',
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    'react-dom/client': 'ReactDOM',
+    '@remix-run/router': 'RemixRouter',
+    'react-router': 'ReactRouter',
+    'react-router-dom': 'ReactRouterDOM'
+  },
   module: {
     rules: [
       {
         test: /\.css$/i,
+        exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -22,10 +30,6 @@ module.exports = {
           },
           'postcss-loader'
         ],
-      },
-      {
-        test: /\.js|jsx|ts|tsx$/i,
-        use: 'babel-loader',
       }
     ],
   },
@@ -38,12 +42,9 @@ module.exports = {
       filename: "[name].[contenthash:8].css",
       chunkFilename: "[id].[contenthash:8].css",
     }),
-    new HtmlWebpackPlugin({
-      template: 'index.ejs'
-    }),
   ],
   resolve: {
-    extensions: ['.ts', '.tsx'],
+    extensions: ['.ts', '.tsx', '.js', '.json'],
     alias: {
       '@@': path.resolve(__dirname, 'src/$fizzy-generated'),
       '@': path.resolve(__dirname, 'src')

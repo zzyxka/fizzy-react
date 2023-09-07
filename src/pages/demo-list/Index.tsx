@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import style from './list.css'
-import { Link } from 'react-router-dom';
-import {FIZZY_REACT_LIST_MOCK_DATA} from '@/constant/storage'
+import React, { useEffect, useState } from "react";
+import style from "./list.css";
+import { Link } from "react-router-dom";
+import { FIZZY_REACT_LIST_MOCK_DATA } from "@/constant/storage";
 
-export default function List (): React.ReactElement<any, any> {
+export default function List(): React.ReactElement<any, any> {
   const [data, setData] = useState([]);
   useEffect(() => {
     const initData = [
-      { id: 1, description: 'Item 1' },
-      { id: 2, description: 'Item 2' },
-      { id: 3, description: 'Item 3' }
+      { id: 1, description: "Item 1" },
+      { id: 2, description: "Item 2" },
+      { id: 3, description: "Item 3" },
     ];
-    const _localData = localStorage.getItem(FIZZY_REACT_LIST_MOCK_DATA) || '';
+    const _localData = localStorage.getItem(FIZZY_REACT_LIST_MOCK_DATA) || "";
     // 缓存数据为长度大于0的数组，则使用缓存数据，否则使用初始数据
     try {
       const _arr = JSON.parse(_localData);
@@ -20,16 +20,25 @@ export default function List (): React.ReactElement<any, any> {
         return;
       }
       setData(initData);
-      localStorage.setItem(FIZZY_REACT_LIST_MOCK_DATA, JSON.stringify(initData));
+      localStorage.setItem(
+        FIZZY_REACT_LIST_MOCK_DATA,
+        JSON.stringify(initData),
+      );
     } catch (e) {
       setData(initData);
-      localStorage.setItem(FIZZY_REACT_LIST_MOCK_DATA, JSON.stringify(initData));
+      localStorage.setItem(
+        FIZZY_REACT_LIST_MOCK_DATA,
+        JSON.stringify(initData),
+      );
     }
   }, []);
 
   return (
     <>
-      <Link to="/demo-edit" className={style.add}>Add</Link>
+      <h3>List</h3>
+      <Link to="/demo-edit" className={style.add}>
+        Add
+      </Link>
       <table className={style.list} border={1}>
         <thead>
           <tr className={style.item}>
@@ -53,5 +62,5 @@ export default function List (): React.ReactElement<any, any> {
         </tbody>
       </table>
     </>
-  )
+  );
 }

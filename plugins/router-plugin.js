@@ -14,7 +14,8 @@ class RouterPlugin {
   }
 
   apply(compiler) {
-    compiler.hooks.thisCompilation.tap('RouterPlugin', (compilation, callback) => {
+    // https://webpack.js.org/api/compiler-hooks/#hooks
+    compiler.hooks.initialize.tap('RouterPlugin', (compilation, callback) => {
       glob(path.join(this.options.srcDir, '**', 'page.json'), (err, files) => {
         if (err) {
           compilation.errors.push(err);
