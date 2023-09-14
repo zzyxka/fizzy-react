@@ -1,3 +1,4 @@
 {
-  "path": "/:detailId"
+  "path": "/:detailId",
+  "initTitle": "详情页"
 }

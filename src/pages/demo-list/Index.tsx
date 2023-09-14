@@ -36,7 +36,7 @@ export default function List(): React.ReactElement<any, any> {
   return (
     <>
       <h3>List</h3>
-      <Link to="/demo-edit" className={style.add}>
+      <Link to="/demo-edit" className={`${style.add} ${style.btn}`}>
         Add
       </Link>
       <table className={style.list} border={1}>
@@ -53,9 +53,13 @@ export default function List(): React.ReactElement<any, any> {
               <td>{item.id}</td>
               <td>{item.description}</td>
               <td>
-                <Link to={`/demo-detail/${item.id}`}>Detail</Link>
+                <Link to={`/demo-detail/${item.id}`} className={style.btn}>
+                  Detail
+                </Link>
                 &nbsp;
-                <Link to={`/demo-edit/${item.id}`}>Edit</Link>
+                <Link to={`/demo-edit/${item.id}`} className={style.btn}>
+                  Edit
+                </Link>
               </td>
             </tr>
           ))}

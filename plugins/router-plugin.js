@@ -3,9 +3,7 @@ const path = require('path');
 const glob = require('glob');
 
 function camelCaseFormat(str) {
-  let newStr = str.replace(/-/g, ' ');
-  newStr = newStr.charAt(0).toUpperCase() + newStr.slice(1);
-  return newStr.replace(/\s/g, '');
+  return str.split('-').reduce((prev, cur) => `${prev}${cur.charAt(0).toUpperCase()}${cur.slice(1)}`, '');
 }
 
 class RouterPlugin {
