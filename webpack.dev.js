@@ -1,6 +1,8 @@
 const path = require('path');
+const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -33,9 +35,18 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
-    new ReactRefreshWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: 'template/dev.ejs'
     }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css",
+    }),
+    new ReactRefreshWebpackPlugin(),
   ],
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
 });

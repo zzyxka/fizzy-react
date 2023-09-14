@@ -34,13 +34,13 @@ module.exports = {
     ],
   },
   plugins: [
-    new RouterPlugin({
-      srcDir: path.join(__dirname, 'src', 'pages'), // 源文件目录路径  
-      outputDir: path.join(__dirname, 'src/$fizzy-generated'), // 输出目录路径，用于存放生成的 router 文件  
-    }),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash:8].css",
       chunkFilename: "[id].[contenthash:8].css",
+    }),
+    new RouterPlugin({
+      srcDir: path.join(__dirname, 'src', 'pages'), // 源文件目录路径  
+      outputDir: path.join(__dirname, 'src/$fizzy-generated'), // 输出目录路径，用于存放生成的 router 文件  
     }),
   ],
   resolve: {
