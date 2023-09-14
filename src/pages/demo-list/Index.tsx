@@ -11,7 +11,7 @@ export default function List(): React.ReactElement<any, any> {
       { id: 2, description: "Item 2" },
       { id: 3, description: "Item 3" },
     ];
-    const _localData = localStorage.getItem(FIZZY_REACT_LIST_MOCK_DATA) || "";
+    const _localData = localStorage.getItem(FIZZY_REACT_LIST_MOCK_DATA) ?? "";
     // 缓存数据为长度大于0的数组，则使用缓存数据，否则使用初始数据
     try {
       const _arr = JSON.parse(_localData);
