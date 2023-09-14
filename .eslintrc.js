@@ -38,5 +38,6 @@ module.exports = {
     "ignorePatterns": [
         "node_modules/**/*",
         "misc/**/*",
+        "**/webpack.*.js",
     ]
 }
