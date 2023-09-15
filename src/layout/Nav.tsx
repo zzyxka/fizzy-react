@@ -21,6 +21,11 @@ export default function Nav(): React.ReactElement<any, any> {
             List
           </NavLink>
         </li>
+        <li>
+          <NavLink to="demo-fetch" className={isActiveClassName}>
+            FetchList
+          </NavLink>
+        </li>
       </ul>
     </div>
   );

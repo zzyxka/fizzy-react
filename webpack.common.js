@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const RouterPlugin = require('./plugins/router-plugin.js');
 
@@ -42,6 +43,9 @@ module.exports = {
       srcDir: path.join(__dirname, 'src', 'pages'),
       outputDir: path.join(__dirname, 'src/$fizzy-generated'),
     }),
+    new webpack.DefinePlugin({
+      'process.env.POKE_API': JSON.stringify('api'),
+    })
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],

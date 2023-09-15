@@ -16,7 +16,14 @@ module.exports = merge(common, {
     compress: true,
     port: 9000,
     open: true,
-    hot: true
+    hot: true,
+    proxy: {
+      '/api': {
+        target: 'https://pokeapi.co',
+        secure: false,
+        changeOrigin: true,
+      },
+    }
   },
   module: {
     rules: [
