@@ -62,6 +62,5 @@ module.exports = {
   },
   optimization: {
     chunkIds: 'named',
-    usedExports: true,
   },
 };
