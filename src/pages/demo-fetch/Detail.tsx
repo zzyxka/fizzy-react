@@ -6,7 +6,7 @@ async function fetchDetail(name): object {
   return data;
 }
 
-export default function Detail({ name }) {
+export default function Detail({ name }): React.ReactElement<any, any> {
   const [detail, setDetail] = useState({});
 
   return detail.sprites ? (
