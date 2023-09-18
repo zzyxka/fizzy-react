@@ -7,7 +7,7 @@
 1. 页面目录以中划线分隔方式命名
 2. 页面目录下必须包含：
    1. `Index.tsx` 视图层入口
-   2. `page.json` 页面配置，触发自动生成路由
+   2. `page.json` 页面配置，触发自动生成路由，参数参照 `react-router` 配置
 
 ## 常量管理
 
@@ -21,25 +21,27 @@
 
 ```bash
 .
+├── misc                    # 杂项，不参与项目构建
+│   └── nginx.conf          # 服务器 ng 配置建议
 ├── plugins                 # 自定义 webpack plugin 目录
 │   └── router-plugin.js    # 自动生成路由插件
 ├── src
-│   ├── $fizzy-generated    # 自动生成的产物
+│   ├── $fizzy-generated    # 自动生成的产物（执行任意打包命令后生成）
 │   │   └── routeConfig.tsx # 自动生成的路由配置
-│   ├── App.tsx             # 项目渲染入口
-│   ├── components          # 公共组件目录
-│   ├── constant            # 常量管理
-│   ├── entry.tsx
 │   ├── layout              # 布局组件目录
 │   ├── pages               # 页面目录
 │   │   ├── demo-detail     # 示例：详情页
 │   │   ├── demo-edit       # 示例：编辑页（不传参则为新增页）
 │   │   ├── demo-list       # 示例：列表页
 │   │   └── home            # 首页
+│   ├── typings             # 项目渲染入口
+│   │   └── global.d.ts     # 全局类型声明
+│   ├── App.tsx             # 项目渲染入口
+│   ├── components          # 公共组件目录
+│   ├── constant            # 常量管理
 │   ├── router.tsx          # 路由配置
-│   └── typings
-│       └── global.d.ts     # 全局类型声明
-├── index.ejs               # html 模板
+│   └── entry.tsx           # 打包入口
+├── template                # html 模板目录
 ├── .npmrc
 ├── .gitignore
 ├── .eslintignore
