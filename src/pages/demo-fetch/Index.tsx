@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
-import style from "./list.css";
-
-async function fetchDetail(name): object {
-  const res = await fetch(`${process.env.POKE_API}/v2/pokemon/${name}`);
-  const data = await res.json();
-  return data;
-}
+import Detail from "./Detail";
+import { Table } from "antd";
 
 export default function Index(): React.ReactElement<any, any> {
   const [list, setList] = useState([]);
-  const [detail, setDetail] = useState({});
 
   useEffect(() => {
     (async (): void => {
@@ -21,40 +15,29 @@ export default function Index(): React.ReactElement<any, any> {
   }, []);
 
   return (
-    <>
+    <div
+      style={{
+        height: "100%",
+        overflow: "hidden",
+        flexDirection: "column",
+        display: "flex",
+      }}
+    >
       <h3>FetchList</h3>
-      <div style={{ display: "flex" }}>
-        <table className={style.list} border={1}>
-          <thead>
-            <tr className={style.item}>
-              <th>ID</th>
-              <th>operation</th>
-            </tr>
-          </thead>
-          <tbody>
-            {list.map((item) => (
-              <tr key={item.name} className={style.item}>
-                <td>{item.name}</td>
-                <td>
-                  <button
-                    onClick={async (): void => {
-                      const data = await fetchDetail(item.name);
-                      setDetail(data);
-                    }}
-                  >
-                    查看详情
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        {detail.sprites && (
-          <div>
-            <img src={detail.sprites.front_default} alt="pokemon" />
-          </div>
-        )}
-      </div>
-    </>
+      <Table
+        style={{ flex: 1 }}
+        bordered
+        scroll={{ y: "calc(100vh - 200px)" }}
+        columns={[
+          { title: "name", dataIndex: "name" },
+          {
+            title: "Operation",
+            dataIndex: "operation",
+            render: (text, { name }) => <Detail name={name} key={name} />,
+          },
+        ]}
+        dataSource={list}
+      />
+    </div>
   );
 }

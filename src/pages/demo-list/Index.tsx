@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import style from "./list.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FIZZY_REACT_LIST_MOCK_DATA } from "@/constant/storage";
+import { Button } from "antd";
 
 export default function List(): React.ReactElement<any, any> {
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
     const initData = [
       { id: 1, description: "Item 1" },
@@ -36,9 +39,15 @@ export default function List(): React.ReactElement<any, any> {
   return (
     <>
       <h3>List</h3>
-      <Link to="/demo-edit" className={`${style.add} ${style.btn}`}>
+      <Button
+        className={style.add}
+        type="primary"
+        onClick={() => {
+          navigate("/demo-edit");
+        }}
+      >
         Add
-      </Link>
+      </Button>
       <table className={style.list} border={1}>
         <thead>
           <tr className={style.item}>
@@ -53,13 +62,23 @@ export default function List(): React.ReactElement<any, any> {
               <td>{item.id}</td>
               <td>{item.description}</td>
               <td>
-                <Link to={`/demo-detail/${item.id}`} className={style.btn}>
+                <Button
+                  type="primary"
+                  onClick={() => {
+                    navigate(`/demo-detail/${item.id}`);
+                  }}
+                >
                   Detail
-                </Link>
+                </Button>
                 &nbsp;
-                <Link to={`/demo-edit/${item.id}`} className={style.btn}>
+                <Button
+                  type="primary"
+                  onClick={() => {
+                    navigate(`/demo-edit/${item.id}`);
+                  }}
+                >
                   Edit
-                </Link>
+                </Button>
               </td>
             </tr>
           ))}

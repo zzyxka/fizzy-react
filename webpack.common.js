@@ -11,7 +11,9 @@ module.exports = {
     'react-dom/client': 'ReactDOM',
     '@remix-run/router': 'RemixRouter',
     'react-router': 'ReactRouter',
-    'react-router-dom': 'ReactRouterDOM'
+    'react-router-dom': 'ReactRouterDOM',
+    'dayjs': 'dayjs',
+    // 'antd': 'antd',
   },
   module: {
     rules: [
@@ -61,5 +63,6 @@ module.exports = {
   },
   optimization: {
     chunkIds: 'named',
+    usedExports: true,
   },
 };
