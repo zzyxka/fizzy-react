@@ -13,7 +13,6 @@ module.exports = {
     'react-router': 'ReactRouter',
     'react-router-dom': 'ReactRouterDOM',
     'dayjs': 'dayjs',
-    // 'antd': 'antd',
   },
   module: {
     rules: [
